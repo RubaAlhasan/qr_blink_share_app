@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
-import 'screens/login_screen.dart';
+import 'core/constants/colors.dart';
+import 'router.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(QRApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+class QRApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Login',
-      theme: ThemeData(primarySwatch: Colors.orange),
-      home: LoginScreen(),
+      theme: ThemeData(
+        primaryColor: AppColors.primaryColor,
+        scaffoldBackgroundColor: AppColors.backgroundColor,
+        textTheme: TextTheme(
+          bodyMedium: TextStyle(color: Colors.white),
+        ),
+      ),
+      initialRoute: '/',
+      onGenerateRoute: AppRouter.generateRoute,
     );
   }
 }
