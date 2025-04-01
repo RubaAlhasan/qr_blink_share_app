@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart'; // Add this import
+import 'package:flutter/material.dart'; // Add this import
 import 'package:qr_blink_share_app/core/constants/colors.dart';
-import '../../data/auth_service.dart';
+
+import '../../services/auth_service.dart';
 
 class LoginScreen extends StatefulWidget {
   @override

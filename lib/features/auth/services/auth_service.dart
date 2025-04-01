@@ -6,8 +6,7 @@ class AuthService {
   Future<String?> login(String email, String password) async {
     try {
       final response = await http.post(
-        Uri.parse(
-            'https://cors-anywhere.herokuapp.com/https://blinkshare.net/connect/token'),
+        Uri.parse('https://blinkshare.net/connect/token'),
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         body: {
           'grant_type': 'password',
