@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart'; // Add this import
 import 'package:qr_blink_share_app/core/constants/colors.dart';
-
-import '../../services/auth_service.dart';
+import 'package:qr_blink_share_app/features/auth/data/repositories/auth_repository.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -11,20 +10,21 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final AuthService authService = AuthService();
+  final AuthRepository authRepository = AuthRepository();
   bool _obscurePassword = true;
-  bool _isLoading = false;
+  final bool _isLoading = false;
 
   Future<void> login() async {
-    setState(() => _isLoading = true);
-    try {
-      String? token = await authService.login(
-          emailController.text, passwordController.text);
-      if (token != null) {
-        Navigator.pushNamed(context, '/home');
-      }
-    } finally {
-      setState(() => _isLoading = false);
+    bool success = await authRepository.login(emailController.text, passwordController.text);
+    if (success) {
+       ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Login Done")),
+      );
+      //Navigator.pushNamed(context, '/');
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Login Failed")),
+      );
     }
   }
 

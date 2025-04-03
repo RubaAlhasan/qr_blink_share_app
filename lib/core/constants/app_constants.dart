@@ -1,5 +1,5 @@
-const baseUrl = 'https://blinkshare.net/api/';
-const authUrl = 'https://blinkshare.net/';
+const baseUrl = 'https://blinkshare.net';
+const authUrl = 'https://blinkshare.net';
 
 class AppStrings {
   static const appName = 'BlinkShare';
