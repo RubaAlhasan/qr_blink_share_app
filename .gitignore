@@ -41,5 +41,13 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+/android/app/build/
+/android/app/.cxx/
+/android/app/.gradle/
+/android/app/.idea/
+/android/app/local.properties
+/android/app/gradle.properties
+/android/app/*.keystore
+/android/app/*.jks
 
 .vs

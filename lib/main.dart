@@ -3,10 +3,12 @@ import 'core/constants/colors.dart';
 import 'router.dart';
 
 void main() {
-  runApp(QRApp());
+  runApp(const QRApp());
 }
 
 class QRApp extends StatelessWidget {
+  const QRApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,7 +16,7 @@ class QRApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: AppColors.primaryColor,
         scaffoldBackgroundColor: AppColors.backgroundColor,
-        textTheme: TextTheme(
+        textTheme: const TextTheme(
           bodyMedium: TextStyle(color: Colors.white),
         ),
       ),

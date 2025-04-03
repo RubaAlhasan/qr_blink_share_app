@@ -6,9 +6,9 @@ import '../utils/token_manager.dart';
 
 class ApiClient {
   static Dio dio = Dio(BaseOptions(
-    baseUrl: '$baseUrl',
-    connectTimeout: Duration(seconds: 100),
-    receiveTimeout: Duration(seconds: 100),
+    baseUrl: baseUrl,
+    connectTimeout: const Duration(seconds: 100),
+    receiveTimeout: const Duration(seconds: 100),
     headers: {"Content-Type": "application/json"},
   ));
 

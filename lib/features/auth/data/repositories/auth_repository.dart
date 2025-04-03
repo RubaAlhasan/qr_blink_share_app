@@ -33,8 +33,25 @@ class AuthRepository {
     return false;
   }
 
-  Future<void> logout() async {
-    await TokenManager.clearTokens();
+  Future<bool> logout() async {
+
+    //https://blinkshare.net/api/account/logout
+
+        try {
+      final response = await _dio.get('/api/account/logout');
+      if(response.statusCode == 200 || response.statusCode == 204){
+      await TokenManager.clearTokens();
+      return true;
+      }
+      else {
+        return false;
+      }
+    } catch (e) {
+      print("Registration Error: $e");
+      return false;
+    }
+    
+    
   }
   
 

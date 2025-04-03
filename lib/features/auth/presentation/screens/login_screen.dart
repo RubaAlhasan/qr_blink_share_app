@@ -3,6 +3,8 @@ import 'package:qr_blink_share_app/core/constants/colors.dart';
 import 'package:qr_blink_share_app/features/auth/data/repositories/auth_repository.dart';
 
 class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
@@ -20,7 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
        ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text("Login Done")),
       );
-      //Navigator.pushNamed(context, '/');
+      Navigator.pushNamed(context, '/home');
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text("Login Failed")),
@@ -77,7 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           color: AppColors.secondaryColor,
                         ),
                       ),
-                      SizedBox(height: 4),
+                      const SizedBox(height: 4),
                       Text(
                         'YOUR THOUGHTS, ONE SCAN AWAY',
                         style: TextStyle(
@@ -92,12 +94,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   TextField(
                     controller: emailController,
                     keyboardType: TextInputType.emailAddress,
-                    style: TextStyle(color: AppColors.textColor),
+                    style: const TextStyle(color: AppColors.textColor),
                     decoration: InputDecoration(
                       labelText: 'Email or UserName',
                       labelStyle: TextStyle(
                           color: AppColors.textColor.withOpacity(0.7)),
-                      prefixIcon: Icon(Icons.email_outlined,
+                      prefixIcon: const Icon(Icons.email_outlined,
                           color: AppColors.primaryColor),
                       filled: true,
                       fillColor: AppColors.secondaryColor.withOpacity(0.05),
@@ -106,20 +108,20 @@ class _LoginScreenState extends State<LoginScreen> {
                         borderSide: BorderSide.none,
                       ),
                       contentPadding:
-                          EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+                          const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
                     ),
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
 
                   TextField(
                     controller: passwordController,
                     obscureText: _obscurePassword,
-                    style: TextStyle(color: AppColors.textColor),
+                    style: const TextStyle(color: AppColors.textColor),
                     decoration: InputDecoration(
                       labelText: 'Password',
                       labelStyle: TextStyle(
                           color: AppColors.textColor.withOpacity(0.7)),
-                      prefixIcon: Icon(Icons.lock_outline,
+                      prefixIcon: const Icon(Icons.lock_outline,
                           color: AppColors.primaryColor),
                       suffixIcon: IconButton(
                         icon: Icon(
@@ -138,10 +140,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         borderSide: BorderSide.none,
                       ),
                       contentPadding:
-                          EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+                          const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
                     ),
                   ),
-                  SizedBox(height: 24),
+                  const SizedBox(height: 24),
 
                   SizedBox(
                     width: double.infinity,
@@ -149,7 +151,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       onPressed: _isLoading ? null : login,
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.primaryColor,
-                        padding: EdgeInsets.symmetric(vertical: 16),
+                        padding: const EdgeInsets.symmetric(vertical: 16),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),
@@ -157,7 +159,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         shadowColor: AppColors.primaryColor.withOpacity(0.3),
                       ),
                       child: _isLoading
-                          ? SizedBox(
+                          ? const SizedBox(
                               height: 20,
                               width: 20,
                               child: CircularProgressIndicator(
@@ -165,7 +167,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 color: Colors.white,
                               ),
                             )
-                          : Text(
+                          : const Text(
                               "Log in",
                               style: TextStyle(
                                 fontSize: 16,
@@ -188,7 +190,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       GestureDetector(
                         onTap: () => Navigator.pushNamed(context, '/signup'),
-                        child: Text(
+                        child: const Text(
                           "Sign up",
                           style: TextStyle(
                             color: AppColors.primaryColor,

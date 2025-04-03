@@ -4,7 +4,10 @@ import 'package:qr_blink_share_app/core/constants/colors.dart';
 import '../../data/repositories/auth_repository.dart';
 
 class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _SignUpScreenState createState() => _SignUpScreenState();
 }
 
@@ -41,10 +44,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
           password: form.control('password').value,
         );
         if (success) {
+          // ignore: use_build_context_synchronously
           Navigator.pushNamed(context, '/login');
         } else {
+          // ignore: use_build_context_synchronously
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text("Registration Failed")),
+            const SnackBar(content: Text("Registration Failed")),
           );
         }
       } finally {
@@ -69,7 +74,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
+              // ignore: deprecated_member_use
               AppColors.backgroundColor.withOpacity(0.95),
+              // ignore: deprecated_member_use
               AppColors.backgroundColor.withOpacity(0.95),
             ],
             begin: Alignment.topCenter,
@@ -108,7 +115,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             color: AppColors.secondaryColor,
                           ),
                         ),
-                        SizedBox(height: 4),
+                        const SizedBox(height: 4),
                         Text(
                           'YOUR THOUGHTS, ONE SCAN AWAY',
                           style: TextStyle(
@@ -123,12 +130,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     // Username Field
                     ReactiveTextField<String>(
                       formControlName: 'userName',
-                      style: TextStyle(color: AppColors.textColor),
+                      style: const TextStyle(color: AppColors.textColor),
                       decoration: InputDecoration(
                         labelText: 'Username',
                         labelStyle: TextStyle(
                             color: AppColors.textColor.withOpacity(0.7)),
-                        prefixIcon: Icon(Icons.person_outline,
+                        prefixIcon: const Icon(Icons.person_outline,
                             color: AppColors.primaryColor),
                         filled: true,
                         fillColor: AppColors.secondaryColor.withOpacity(0.05),
@@ -136,7 +143,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           borderRadius: BorderRadius.circular(12),
                           borderSide: BorderSide.none,
                         ),
-                        contentPadding: EdgeInsets.symmetric(
+                        contentPadding: const EdgeInsets.symmetric(
                             vertical: 16, horizontal: 20),
                       ),
                       validationMessages: {
@@ -144,18 +151,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         'minLength': (_) => 'Minimum 3 characters',
                       },
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
 
                     // Email Field
                     ReactiveTextField<String>(
                       formControlName: 'emailAddress',
                       keyboardType: TextInputType.emailAddress,
-                      style: TextStyle(color: AppColors.textColor),
+                      style: const TextStyle(color: AppColors.textColor),
                       decoration: InputDecoration(
                         labelText: 'Email Address',
                         labelStyle: TextStyle(
                             color: AppColors.textColor.withOpacity(0.7)),
-                        prefixIcon: Icon(Icons.email_outlined,
+                        prefixIcon: const Icon(Icons.email_outlined,
                             color: AppColors.primaryColor),
                         filled: true,
                         fillColor: AppColors.secondaryColor.withOpacity(0.05),
@@ -163,7 +170,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           borderRadius: BorderRadius.circular(12),
                           borderSide: BorderSide.none,
                         ),
-                        contentPadding: EdgeInsets.symmetric(
+                        contentPadding: const EdgeInsets.symmetric(
                             vertical: 16, horizontal: 20),
                       ),
                       validationMessages: {
@@ -171,18 +178,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         'email': (_) => 'Enter a valid email',
                       },
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
 
                     // Password Field
                     ReactiveTextField<String>(
                       formControlName: 'password',
                       obscureText: _obscurePassword,
-                      style: TextStyle(color: AppColors.textColor),
+                      style: const TextStyle(color: AppColors.textColor),
                       decoration: InputDecoration(
                         labelText: 'Password',
                         labelStyle: TextStyle(
                             color: AppColors.textColor.withOpacity(0.7)),
-                        prefixIcon: Icon(Icons.lock_outline,
+                        prefixIcon: const Icon(Icons.lock_outline,
                             color: AppColors.primaryColor),
                         suffixIcon: IconButton(
                           icon: Icon(
@@ -200,7 +207,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           borderRadius: BorderRadius.circular(12),
                           borderSide: BorderSide.none,
                         ),
-                        contentPadding: EdgeInsets.symmetric(
+                        contentPadding: const EdgeInsets.symmetric(
                             vertical: 16, horizontal: 20),
                       ),
                       validationMessages: {
@@ -208,18 +215,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         'minLength': (_) => 'Minimum 6 characters',
                       },
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
 
                     // Confirm Password Field
                     ReactiveTextField<String>(
                       formControlName: 'confirmPassword',
                       obscureText: _obscureConfirmPassword,
-                      style: TextStyle(color: AppColors.textColor),
+                      style: const TextStyle(color: AppColors.textColor),
                       decoration: InputDecoration(
                         labelText: 'Confirm Password',
                         labelStyle: TextStyle(
                             color: AppColors.textColor.withOpacity(0.7)),
-                        prefixIcon: Icon(Icons.lock_outline,
+                        prefixIcon: const Icon(Icons.lock_outline,
                             color: AppColors.primaryColor),
                         suffixIcon: IconButton(
                           icon: Icon(
@@ -237,7 +244,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           borderRadius: BorderRadius.circular(12),
                           borderSide: BorderSide.none,
                         ),
-                        contentPadding: EdgeInsets.symmetric(
+                        contentPadding: const EdgeInsets.symmetric(
                             vertical: 16, horizontal: 20),
                       ),
                       validationMessages: {
@@ -245,7 +252,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         'mustMatch': (_) => 'Passwords do not match',
                       },
                     ),
-                    SizedBox(height: 24),
+                    const SizedBox(height: 24),
 
                     // Sign Up Button
                     SizedBox(
@@ -254,7 +261,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         onPressed: _isLoading ? null : () => _signUp(context),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: AppColors.primaryColor,
-                          padding: EdgeInsets.symmetric(vertical: 16),
+                          padding: const EdgeInsets.symmetric(vertical: 16),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                           ),
@@ -262,7 +269,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           shadowColor: AppColors.primaryColor.withOpacity(0.3),
                         ),
                         child: _isLoading
-                            ? SizedBox(
+                            ? const SizedBox(
                                 height: 20,
                                 width: 20,
                                 child: CircularProgressIndicator(
@@ -270,7 +277,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   color: Colors.white,
                                 ),
                               )
-                            : Text(
+                            : const Text(
                                 "Sign Up",
                                 style: TextStyle(
                                   fontSize: 16,
@@ -293,7 +300,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                         GestureDetector(
                           onTap: () => Navigator.pushNamed(context, '/login'),
-                          child: Text(
+                          child: const Text(
                             "Log in",
                             style: TextStyle(
                               color: AppColors.primaryColor,
